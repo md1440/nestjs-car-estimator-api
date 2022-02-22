@@ -13,7 +13,7 @@ import { UsersModule } from './users/users.module';
       type: 'sqlite',
       database: 'db.sqlite',
       entities: [User, Report],
-      synchronize: true,
+      synchronize: true, // updates strcuture of db based on the entities and respective decorateurs - only in DEV
     }),
     UsersModule,
     ReportsModule,
