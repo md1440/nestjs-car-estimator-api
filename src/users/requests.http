@@ -3,15 +3,30 @@ POST http://localhost:3000/auth/signup
 content-type: application/json
 
 {
-  "email": "asdfghjk@asdf.com",
-  "password": "asflkdk"
+  "email": "test@test.com",
+  "password": "KrystalStar144"
 }
 
+### Signin as an existing user
+POST http://localhost:3000/auth/signin
+content-type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "KrystalStar144"
+}
+
+### Get the currently signed in user
+GET http://localhost:3000/auth/whoami
+
+### Signout
+POST http://localhost:3000/auth/signout
+
 ### Find a user with Id
-GET http://localhost:3000/auth/4
+GET http://localhost:3000/auth/3
 
 ### Find all users with given email
-GET http://localhost:3000/auth?email=asdf@asdf.com
+GET http://localhost:3000/auth?email=asdfghjk@asdf.com
 
 ### Delete a user with a given ID
 DELETE http://localhost:3000/auth/243
