@@ -38,6 +38,10 @@ export class AuthService {
       throw new NotFoundException('User not found');
     }
 
+    // *** Authentification on signin
+    // 1) Retrieve salt and storedHash from DB
+    // 2) Generate hash with salt and password input
+    // 3) Compare storedHash to hash, nadle bad request
     const [salt, storedHash] = user.password.split('.');
     const hash = (await scrypt(password, salt, 32)) as Buffer;
 
