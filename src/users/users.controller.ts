@@ -62,7 +62,8 @@ export class UsersController {
     return user;
   }
 
-  // @UseInterceptors(new SerializeInterceptor(UserDto))
+  // @UseInterceptors(new SerializeInterceptor(UserDto)) refact with custom decorateur
+  // @Serialize(UserDto)
   @Get('/:id')
   async findUser(@Param('id') id: string) {
     const user = await this.usersService.findOne(parseInt(id));

@@ -30,6 +30,6 @@ export class User {
 
   @AfterRemove()
   logRemove() {
-    console.log('Remove User with Id', this.id);
+    console.log('Removed User with Id', this.id);
   }
 }
