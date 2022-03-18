@@ -14,6 +14,7 @@ import { UsersService } from './users.service';
     UsersService,
     AuthService,
     {
+      // globally scoped interceptor
       provide: APP_INTERCEPTOR,
       useClass: CurrentUserInterceptor,
     },

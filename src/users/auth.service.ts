@@ -23,7 +23,7 @@ export class AuthService {
     // 1) generate a salt
     // 2) hash the salt and password together
     // 3) join the hased result and salt together
-    // 4) create a new user and save it
+    // *** create a new user and save it
     const salt = randomBytes(8).toString('hex');
     const hash = (await scrypt(password, salt, 32)) as Buffer;
     const result = salt + '.' + hash.toString('hex');
