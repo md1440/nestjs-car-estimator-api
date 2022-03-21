@@ -1,13 +1,11 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { ValidationPipe } from '@nestjs/common';
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const cookieSession = require('cookie-session'); // due to compatibility
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+// *** Hack for setting up global middleware for e2e testing
 
+export const setupApp = (app: any) => {
   app.use(
     cookieSession({
       keys: ['KrystalStar'],
@@ -19,7 +17,4 @@ async function bootstrap() {
       whitelist: true, // strips out extra properties on req body
     }),
   );
-
-  await app.listen(3000);
-}
-bootstrap();
+};
