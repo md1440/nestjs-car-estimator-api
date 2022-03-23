@@ -1,0 +1,13 @@
+### Create a new Report
+POST http://localhost:3000/reports
+content-type: application/json
+
+{
+  "make": "mercedes",
+  "model": "c250 tdi",
+  "year": 1998,
+  "mileage": 180000,
+  "lng": 0,
+  "lat": 0,
+  "price": 10000
+}
