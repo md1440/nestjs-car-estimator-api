@@ -21,6 +21,9 @@ export class User {
   @Column()
   password: string;
 
+  @Column({ default: true })
+  admin: boolean;
+
   // association between user-reports in db
   @OneToMany(() => Report, (report) => report.user)
   reports: Report[];
