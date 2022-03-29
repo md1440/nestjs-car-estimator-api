@@ -1,5 +1,3 @@
-import { report } from 'process';
-import { Report } from 'src/reports/report.entity';
 import {
   AfterInsert,
   AfterRemove,
@@ -9,6 +7,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { Report } from '../reports/report.entity';
 
 @Entity()
 export class User {
@@ -21,7 +20,7 @@ export class User {
   @Column()
   password: string;
 
-  @Column({ default: false })
+  @Column({ default: true })
   admin: boolean;
 
   // association between user-reports in db
