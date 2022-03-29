@@ -23,7 +23,7 @@ const cookieSession = require('cookie-session'); // due to compatibility
         return {
           type: 'sqlite',
           database: config.get<string>('DB_NAME'),
-          synchronize: true,
+          synchronize: true, //!! true only dev -> checks entities and synchronizes structure of respective table in DB (adds, deletes columns)
           entities: [User, Report],
         };
       },
@@ -33,7 +33,7 @@ const cookieSession = require('cookie-session'); // due to compatibility
     //   type: 'sqlite',
     //   database: 'db.sqlite',
     //   entities: [User, Report],
-    //   synchronize: true, // updates strcuture of db based on the entities and respective decorateurs - only in DEV
+    //   synchronize: true, //!! true only dev -> checks entities and synchronizes structure of respective table in DB (adds, deletes columns)
     // }),
     UsersModule,
     ReportsModule,
@@ -51,12 +51,14 @@ const cookieSession = require('cookie-session'); // due to compatibility
   ],
 })
 export class AppModule {
+  constructor(private configService: ConfigService) {}
+
   // implementing global middleware
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(
         cookieSession({
-          keys: ['KrystalStar'],
+          keys: [this.configService.get('COOKIE_KEY')],
         }),
       )
       .forRoutes('*');
