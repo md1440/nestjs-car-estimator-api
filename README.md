@@ -53,8 +53,7 @@ How does one go about using it?
 Provide various use cases and code examples here.
 
 ### Create a new user
-POST https://car-estimator-api.herokuapp.com/auth/signup
-content-type: application/json
+POST https://car-estimator-api.herokuapp.com/auth/signup content-type: application/json
 
 {
   "email": "test-admin@test.com",
@@ -62,13 +61,59 @@ content-type: application/json
 }
 
 ### Signin as an existing user
-POST https://car-estimator-api.herokuapp.com/auth/signin
-content-type: application/json
+POST https://car-estimator-api.herokuapp.com/auth/signin content-type: application/json
 
 {
   "email": "test-admin@test.com",
   "password": "asdf1234"
 }
+
+### Get the currently signed in user
+GET https://car-estimator-api.herokuapp.com/auth/whoami
+
+### Signout
+POST https://car-estimator-api.herokuapp.com/auth/signout
+
+### Find a user with Id
+GET https://car-estimator-api.herokuapp.com/auth/3
+
+### Find all users with given email
+GET https://car-estimator-api.herokuapp.com/auth?email=asdfghjk@asdf.com
+
+### Delete a user with a given ID
+DELETE https://car-estimator-api.herokuapp.com/auth/243
+
+### Update a user
+PATCH https://car-estimator-api.herokuapp.com/auth/434 content-Type: application/json
+
+{
+  "password": "aaa"
+}
+
+### Create a new Report
+POST https://car-estimator-api.herokuapp.com/reports content-type: application/json
+
+{
+  "make": "ford",
+  "model": "mustang",
+  "year": 1982,
+  "mileage": 50000,
+  "lng": 45,
+  "lat": 45,
+  "price": 20000
+}
+
+### Approve an existing report
+PATCH https://car-estimator-api.herokuapp.com/reports/15
+content-type: application/json
+
+{
+  "approved": true
+}
+
+### Get an estimate for an existing vehicle
+GET https://car-estimator-api.herokuapp.com/reports?make=ford&model=mustang&lng=45&lat=45&mileage=50000&year=1981
+
 
 
 ## Project Status
