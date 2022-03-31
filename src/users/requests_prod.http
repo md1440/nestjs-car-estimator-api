@@ -11,7 +11,7 @@ POST https://car-estimator-api.herokuapp.com/auth/signup
 content-type: application/json
 
 {
-  "email": "test02@test.com",
+  "email": "test04@test.com",
   "password": "KrystalStar144"
 }
 
@@ -20,7 +20,7 @@ POST https://car-estimator-api.herokuapp.com/auth/signin
 content-type: application/json
 
 {
-  "email": "test02@test.com",
+  "email": "test04@test.com",
   "password": "KrystalStar144"
 }
 
