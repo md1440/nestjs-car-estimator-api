@@ -1,0 +1,48 @@
+### Admin
+
+# {
+#   "email": "test-admin@test.com",
+#   "password": "KrystalStar144"
+# }
+
+
+### Create a new user
+POST https://car-estimator-api.herokuapp.com/auth/signup
+content-type: application/json
+
+{
+  "email": "test01@test.com",
+  "password": "KrystalStar144"
+}
+
+### Signin as an existing user
+POST https://car-estimator-api.herokuapp.com/auth/signin
+content-type: application/json
+
+{
+  "email": "test01@test.com",
+  "password": "KrystalStar144"
+}
+
+### Get the currently signed in user
+GET https://car-estimator-api.herokuapp.com/auth/whoami
+
+### Signout
+POST https://car-estimator-api.herokuapp.com/auth/signout
+
+### Find a user with Id
+GET https://car-estimator-api.herokuapp.com/auth/1
+
+### Find all users with given email
+GET https://car-estimator-api.herokuapp.com/auth?email=asdfghjk@asdf.com
+
+### Delete a user with a given ID
+DELETE https://car-estimator-api.herokuapp.com/auth/243
+
+### Update a user
+PATCH https://car-estimator-api.herokuapp.com/auth/1
+Content-Type: application/json
+
+{
+  "password": "KrystalStar144"
+}
