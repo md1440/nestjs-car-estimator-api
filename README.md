@@ -32,7 +32,7 @@
 ## Features
 <!-- List the ready features here: -->
 - Users can sign up with email/password
-- Users can get an estimate value for their car based on make/model/mileage/year
+- Users can get an estimate value for their car based on make/model/mileage/year/latitude/longitude
 - Users can report what they sold their cars for
 - Admins have to approve reported sales
 
@@ -52,7 +52,23 @@ Proceed to describe how to install / setup one's local environment / get started
 How does one go about using it?
 Provide various use cases and code examples here.
 
-`write-your-code-here`
+### Create a new user
+POST https://car-estimator-api.herokuapp.com/auth/signup
+content-type: application/json
+
+{
+  "email": "test-admin@test.com",
+  "password": "asdf1234"
+}
+
+### Signin as an existing user
+POST https://car-estimator-api.herokuapp.com/auth/signin
+content-type: application/json
+
+{
+  "email": "test-admin@test.com",
+  "password": "asdf1234"
+}
 
 
 ## Project Status
